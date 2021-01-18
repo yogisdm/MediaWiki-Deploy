@@ -20,7 +20,7 @@ pipeline {
 	
     stage('Mediawiki-deploy') {
       steps {
-        sh 'terraform apply'
+        sh 'terraform apply -input=false -auto-approve'
 	      
       }
     }
