@@ -19,7 +19,7 @@ data "aws_ami" "mediawikiami" {
 
 #Provision an EC2 instance for hosting wediawiki server
 resource "aws_instance" "mediawiki_server" {
-	ami				= "${data.aws_ami.mediawiki.id}"
+	ami				= "${data.aws_ami.mediawikiami.id}"
 	instance_type	= "t2.small"
 	key_name         = "yogiassignment"
 	subnet_id 		 = "subnet-0698441978a443411"
