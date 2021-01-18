@@ -1,5 +1,5 @@
 provider "aws" {
-	region = "${var.aws_region}"
+	region = "var.aws_region"
 }
 
 #Find the latest available AMI with mediawiki based on Name Tag
@@ -32,5 +32,5 @@ resource "aws_instance" "mediawiki_server" {
 #Associate Elastic IP to the mediawiki server
 resource "aws_eip_association" "eip_assoc_app" {
 	instance_id	= "${aws_instance.mediawiki_server.id}"
-	allocation_id	= "${var.mediawiki_ip}"
+	allocation_id	= "var.mediawiki_ip"
 }
