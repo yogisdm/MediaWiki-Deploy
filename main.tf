@@ -1,5 +1,5 @@
 provider "aws" {
-	region = "var.aws_region"
+	region = var.aws_region
 }
 
 #Find the latest available AMI with mediawiki based on Name Tag
@@ -19,7 +19,7 @@ data "aws_ami" "mediawikiami" {
 
 #Provision an EC2 instance for hosting wediawiki server
 resource "aws_instance" "mediawiki_server" {
-	ami				= "${data.aws_ami.mediawikiami.id}"
+	ami				= data.aws_ami.mediawikiami.id
 	instance_type	= "t2.small"
 	key_name         = "yogiassignment"
 	subnet_id 		 = "subnet-0698441978a443411"
@@ -32,5 +32,5 @@ resource "aws_instance" "mediawiki_server" {
 #Associate Elastic IP to the mediawiki server
 resource "aws_eip_association" "eip_assoc_app" {
 	instance_id	= "${aws_instance.mediawiki_server.id}"
-	allocation_id	= "var.mediawiki_ip"
+	allocation_id	= var.mediawiki_ip
 }
