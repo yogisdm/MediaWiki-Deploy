@@ -5,5 +5,5 @@ variable "aws_region" {
 
 variable "mediawiki_ip" {
   description = "Reserved IP for mediawiki server"
-  default     = "eipalloc-03836347b6fc72ff6"
+  default     = "eipalloc-03b72f259d374c443"
 }

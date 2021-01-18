@@ -31,6 +31,6 @@ resource "aws_instance" "mediawiki_server" {
 
 #Associate Elastic IP to the mediawiki server
 resource "aws_eip_association" "eip_assoc_app" {
-	instance_id	= "${aws_instance.mediawiki_server.id}"
+	instance_id	= aws_instance.mediawiki_server.id
 	allocation_id	= var.mediawiki_ip
 }
