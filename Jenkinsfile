@@ -10,15 +10,16 @@ pipeline {
     	}
     
  
-    stage('Packer version') {
+    stage('terraform version') {
       steps {
-        sh '/usr/bin/packer --version'
+        sh 'terraform --version'
+		sh 'terraform plan'
       }
     }
 	
-    stage('Image Build & Encrypt') {
+    stage('Mediawiki-deploy') {
       steps {
-        sh '/usr/bin/packer build image.json'
+        sh 'terraform apply'
 	      
       }
     }
