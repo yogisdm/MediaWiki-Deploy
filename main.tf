@@ -22,8 +22,8 @@ resource "aws_instance" "mediawiki_server" {
 	ami				= data.aws_ami.mediawikiami.id
 	instance_type	= "t2.small"
 	key_name         = "yogiassigment"
-	subnet_id 		 = "subnet-0698441978a443411"
-	vpc_security_group_ids 		= ["sg-0d3c94d96b36416e7"]
+	subnet_id 		 = var.subnet_ID
+	vpc_security_group_ids 		= var.security_group_ID
 	tags = {
     	  Name		= "mediawiki_server"
 	}
